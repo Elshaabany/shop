@@ -2,15 +2,19 @@ const { host, port } = require('./util/config');
 const db = require('./util/db');
 const express = require('express');
 require('express-async-errors');
+const helmet = require('helmet');
 
 const userRouter = require('./router/user');
 const productRouter = require('./router/product');
 const cartRouter = require('./router/cart');
 const orderRouter = require('./router/order');
 const adminRouter = require('./router/admin');
+const compression = require('compression');
 
 const app = express();
 
+app.use(helmet());
+app.use(compression());
 app.use(express.json());
 app.use((req, res, next) => {
     res.setHeader('Access-Control-Allow-Origin', '*');
