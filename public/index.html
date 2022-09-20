@@ -1,0 +1,74 @@
+<h1 id="description">Description</h1>
+<p>A RESTful API shop backend project using Node.js and express.</p>
+<h3 id="project-features">Project features</h3>
+<ul>
+<li>pagination</li>
+<li>password hashing using <a href="https://www.npmjs.com/package/bcrypt">bcrypt</a></li>
+<li>Authentication and Authorization using <a href="https://www.npmjs.com/package/jsonwebtoken">JWT</a></li>
+<li>input validation using <a href="https://www.npmjs.com/package/express-validator">express-validator</a></li>
+<li>send mails using <a href="https://sendgrid.com">sendgrid</a> and <a href="https://www.npmjs.com/package/nodemailer">nodemailer</a></li>
+</ul>
+<h3 id="project-roles">Project roles</h3>
+<p>  This project has three roles: Unregistered user, Registered user and Admin</p>
+<ul>
+<li><strong>Unregistered user</strong></li>
+</ul>
+<ol>
+<li>get all projects</li>
+<li>get specific product data</li>
+</ol>
+<ul>
+<li><strong>Registered user</strong></li>
+</ul>
+<ol>
+<li>do what unregistered users can do</li>
+<li>CRUD on their cart</li>
+<li>CRUD on their orders</li>
+</ol>
+<ul>
+<li><strong>Admin</strong></li>
+</ul>
+<ol>
+<li>do what registered users can do</li>
+<li>CRUD on their products</li>
+<li>get and change the status for any order</li>
+</ol>
+<p>To login as Admin use these credentials</p>
+<pre><code>{
+    &quot;email&quot;: &quot;admin@mail.com&quot;,
+    &quot;password&quot;: &quot;Admin_1234&quot;
+}
+</code></pre>
+<p>To test this application I used <a href="https://www.postman.com/">Postman</a></p>
+<h2 id="how-to-use">How to use</h2>
+<ul>
+<li><p>import &quot;<em>shop.postman_collection.json</em>&quot; from the project&#39;s root directory to Postman</p>
+</li>
+<li><p>signup or sign in</p>
+<p>  <img src="https://user-images.githubusercontent.com/29892175/191251138-2f33ddfa-a669-4d96-8745-26d043503346.png" alt="image"></p>
+</li>
+<li><p>copy the returned token from the response</p>
+<p>   <img src="https://user-images.githubusercontent.com/29892175/191236658-1a47c611-d09e-43de-a01c-964da270b1a9.png" alt="image"></p>
+</li>
+<li><p>paste it on the logged user variable</p>
+<p>   <img src="https://user-images.githubusercontent.com/29892175/191237207-f5344239-50cf-4271-ae68-9929a748e27b.png" alt="image"></p>
+</li>
+<li><p>make sure to send the request body with valid data if the request has a body</p>
+<p>  <img src="https://user-images.githubusercontent.com/29892175/191247091-0c658707-4b63-42fa-83b0-adfda41ffaba.png" alt="image"></p>
+</li>
+<li><p>make sure to send request params or query string values with valid data if the request requires them</p>
+<p>  <img src="https://user-images.githubusercontent.com/29892175/191235093-4924b27f-7b30-4d15-8f66-f0a08b01a2b8.png" alt="image"></p>
+</li>
+</ul>
+<h2 id="how-to-run">How to run</h2>
+<p><code>git clone https://github.com/Elshaabany/shop.git</code></p>
+<p><code>cd shop</code></p>
+<p><code>npm install</code></p>
+<p>create .env file at the project&#39;s root directory.
+insert these variables with your values on the .env file.</p>
+<pre><code>MongodbURI=;insert your mongo URI
+JWT_Secret=;insert your JWT Secret of choice
+sendGrid_api_key=;insert your send grid api key
+senderMail=;insert your verified send grid mail
+</code></pre>
+<p><code>npm start</code></p>

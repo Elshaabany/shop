@@ -22,6 +22,7 @@
     "helmet": "^6.0.0",
     "jsonwebtoken": "^8.5.1",
     "lodash": "^4.17.21",
+    "marked": "^4.1.0",
     "mongoose": "^6.5.4",
     "nodemailer": "^6.7.8",
     "nodemailer-sendgrid-transport": "^0.2.0",

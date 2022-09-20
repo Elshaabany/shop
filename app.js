@@ -1,8 +1,10 @@
 const { host, port } = require('./util/config');
+const fs = require('fs');
 const db = require('./util/db');
 const express = require('express');
 require('express-async-errors');
 const helmet = require('helmet');
+const { marked } = require('marked');
 
 const userRouter = require('./router/user');
 const productRouter = require('./router/product');
@@ -13,6 +15,7 @@ const compression = require('compression');
 
 const app = express();
 
+app.use(express.static('./public'));
 app.use(helmet());
 app.use(compression());
 app.use(express.json());
@@ -28,6 +31,11 @@ app.use('/product', productRouter);
 app.use('/cart', cartRouter);
 app.use('/order', orderRouter);
 app.use('/admin', adminRouter);
+
+fs.writeFileSync('./public/index.html', marked.parse(fs.readFileSync('./README.md').toString()));
+app.get('/', (req, res, next) => {
+    res.redirect('index.html');
+});
 
 app.use((err, req, res, next) => {
     res.status(err.statusCode || 500).json({ message: err.message, errors: err.errors });
