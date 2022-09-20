@@ -1,7 +1,7 @@
 {
 	"info": {
-		"_postman_id": "02f00481-52dd-42f4-ba07-89a207860bcd",
-		"name": "shop Copy",
+		"_postman_id": "8760a64b-da7d-467b-afa7-e5b5bc15da56",
+		"name": "shop",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
 		"_exporter_id": "14566239"
 	},
@@ -110,13 +110,23 @@
 							}
 						],
 						"url": {
-							"raw": "{{host}}/product/",
+							"raw": "{{host}}/product/?page=1&IPP=3",
 							"host": [
 								"{{host}}"
 							],
 							"path": [
 								"product",
 								""
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "1"
+								},
+								{
+									"key": "IPP",
+									"value": "3"
+								}
 							]
 						}
 					},

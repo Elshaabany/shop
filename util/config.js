@@ -7,5 +7,5 @@ module.exports = {
     JWT_Secret: process.env.JWT_Secret,
     sendGrid_api: process.env.sendGrid_api_key,
     senderMail: process.env.senderMail,
-    host: process.env.host
+    host: process.env.host || 'localhost'
 };
