@@ -40,7 +40,7 @@ To test this application I used [Postman](https://www.postman.com/)
 
 ## How to use
 
-- import ["*shop.postman_collection.json*"](https://github.com/Elshaabany/shop) from the project's root directory to Postman
+- import ["*shop.postman_collection.json*"](https://drive.google.com/file/d/1X17gFI5OWK_NIQJU2pirxcnxkX5_VHy3/view?usp=sharing) from the project's root directory to Postman
 - signup or sign in
 
     ![image](https://user-images.githubusercontent.com/29892175/191251138-2f33ddfa-a669-4d96-8745-26d043503346.png)
