@@ -27,9 +27,9 @@ app.use((req, res, next) => {
 });
 
 app.use('/user', userRouter);
-app.use('/product', productRouter);
+app.use('/products', productRouter);
 app.use('/cart', cartRouter);
-app.use('/order', orderRouter);
+app.use('/orders', orderRouter);
 app.use('/admin', adminRouter);
 
 fs.writeFileSync('./public/index.html', marked.parse(fs.readFileSync('./README.md').toString()));

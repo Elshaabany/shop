@@ -20,7 +20,7 @@ router.use(validator.product);
 
 router.post('/', productController.postProduct);
 
-router.patch('/:productId', isAuthorizedProduct, productController.patchProduct);
+router.put('/:productId', isAuthorizedProduct, productController.putProduct);
 
 
 module.exports = router;

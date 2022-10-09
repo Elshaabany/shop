@@ -8,8 +8,8 @@ const { isAdmin } = require('../middlewares/auth');
 
 router.use(isAdmin);
 
-router.get('/order', adminController.getOrders);
+router.get('/orders', adminController.getOrders);
 
-router.patch('/order/:orderId', validator.mongoId('orderId'), validator.orderStatus, adminController.patchOrder);
+router.patch('/orders/:orderId', validator.mongoId('orderId'), validator.orderStatus, adminController.patchOrder);
 
 module.exports = router;

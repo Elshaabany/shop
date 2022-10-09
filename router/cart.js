@@ -18,7 +18,7 @@ router.delete('/:productId', cartController.deleteCart);
 
 router.use(validator.quantity);
 
-router.post('/:productId', cartController.postCart);
+router.put('/:productId', cartController.postCart);
 
 router.patch('/:productId', cartController.patchCart);
 

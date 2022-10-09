@@ -5,10 +5,10 @@ exports.getProducts = async (req, res, next) => {
 
     let page = req.query.page;
     page = page > 0 ? page : 1;
-    let IPP = req.query.IPP;
-    IPP = IPP > 0 ? IPP : 0;
+    let size = req.query.size;
+    size = size > 0 ? size : 0;
     const totalProducts = await Product.find().countDocuments();
-    const products = await Product.find().skip((page - 1) * IPP).limit(IPP).populate('createdBy');
+    const products = await Product.find().skip((page - 1) * size).limit(size).populate('createdBy');
     if (!products.length) throw new CustomError('no products found', 404);
     res.json({ products, totalProducts });
 
@@ -33,14 +33,14 @@ exports.postProduct = async (req, res, next) => {
         createdBy: req.user._id
     });
 
-    res.json({
+    res.status(201).json({
         message: 'added succssefully',
         product: await product.populate('createdBy')
     });
 
 };
 
-exports.patchProduct = async (req, res, next) => {
+exports.putProduct = async (req, res, next) => {
 
     const product = req.product;
 

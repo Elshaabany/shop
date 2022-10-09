@@ -71,7 +71,7 @@ exports.postOrder = async (req, res, next) => {
         </table>`
     }).then(console.log).catch(console.error);
 
-    res.json({
+    res.status(201).json({
         message: 'order created successfully',
         createdOrder
     });

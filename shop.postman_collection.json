@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "8760a64b-da7d-467b-afa7-e5b5bc15da56",
+		"_postman_id": "5f1ef107-6dd6-4f42-b37e-a06ed720a67d",
 		"name": "shop",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
 		"_exporter_id": "14566239"
@@ -96,7 +96,7 @@
 			]
 		},
 		{
-			"name": "product",
+			"name": "products",
 			"item": [
 				{
 					"name": "Get All products",
@@ -110,12 +110,12 @@
 							}
 						],
 						"url": {
-							"raw": "{{host}}/product/?page=1&IPP=3",
+							"raw": "{{host}}/products/?page=1&size=3",
 							"host": [
 								"{{host}}"
 							],
 							"path": [
-								"product",
+								"products",
 								""
 							],
 							"query": [
@@ -124,7 +124,7 @@
 									"value": "1"
 								},
 								{
-									"key": "IPP",
+									"key": "size",
 									"value": "3"
 								}
 							]
@@ -144,12 +144,12 @@
 							}
 						],
 						"url": {
-							"raw": "{{host}}/product/:prductId",
+							"raw": "{{host}}/products/:prductId",
 							"host": [
 								"{{host}}"
 							],
 							"path": [
-								"product",
+								"products",
 								":prductId"
 							],
 							"variable": [
@@ -183,12 +183,12 @@
 							}
 						},
 						"url": {
-							"raw": "{{host}}/product/",
+							"raw": "{{host}}/products/",
 							"host": [
 								"{{host}}"
 							],
 							"path": [
-								"product",
+								"products",
 								""
 							]
 						}
@@ -198,7 +198,7 @@
 				{
 					"name": "Update product",
 					"request": {
-						"method": "PATCH",
+						"method": "PUT",
 						"header": [
 							{
 								"key": "Authorization",
@@ -216,12 +216,12 @@
 							}
 						},
 						"url": {
-							"raw": "{{host}}/product/:productId",
+							"raw": "{{host}}/products/:productId",
 							"host": [
 								"{{host}}"
 							],
 							"path": [
-								"product",
+								"products",
 								":productId"
 							],
 							"variable": [
@@ -246,12 +246,12 @@
 							}
 						],
 						"url": {
-							"raw": "{{host}}/product/:productId",
+							"raw": "{{host}}/products/:productId",
 							"host": [
 								"{{host}}"
 							],
 							"path": [
-								"product",
+								"products",
 								":productId"
 							],
 							"variable": [
@@ -296,7 +296,7 @@
 				{
 					"name": "Add to Cart",
 					"request": {
-						"method": "POST",
+						"method": "PUT",
 						"header": [
 							{
 								"key": "Authorization",
@@ -422,8 +422,33 @@
 			]
 		},
 		{
-			"name": "order",
+			"name": "orders",
 			"item": [
+				{
+					"name": "Get all orders",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{logged user}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{host}}/admin/orders/",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"admin",
+								"orders",
+								""
+							]
+						}
+					},
+					"response": []
+				},
 				{
 					"name": "Get my orders",
 					"request": {
@@ -436,12 +461,12 @@
 							}
 						],
 						"url": {
-							"raw": "{{host}}/order/",
+							"raw": "{{host}}/orders/",
 							"host": [
 								"{{host}}"
 							],
 							"path": [
-								"order",
+								"orders",
 								""
 							]
 						}
@@ -460,73 +485,13 @@
 							}
 						],
 						"url": {
-							"raw": "{{host}}/order/place",
+							"raw": "{{host}}/orders/place",
 							"host": [
 								"{{host}}"
 							],
 							"path": [
-								"order",
+								"orders",
 								"place"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "cancel order",
-					"request": {
-						"method": "DELETE",
-						"header": [
-							{
-								"key": "Authorization",
-								"value": "{{logged user}}",
-								"type": "text"
-							}
-						],
-						"url": {
-							"raw": "{{host}}/order/:orederId",
-							"host": [
-								"{{host}}"
-							],
-							"path": [
-								"order",
-								":orederId"
-							],
-							"variable": [
-								{
-									"key": "orederId",
-									"value": ""
-								}
-							]
-						}
-					},
-					"response": []
-				}
-			]
-		},
-		{
-			"name": "admin",
-			"item": [
-				{
-					"name": "Get all orders",
-					"request": {
-						"method": "GET",
-						"header": [
-							{
-								"key": "Authorization",
-								"value": "{{logged user}}",
-								"type": "text"
-							}
-						],
-						"url": {
-							"raw": "{{host}}/admin/order/",
-							"host": [
-								"{{host}}"
-							],
-							"path": [
-								"admin",
-								"order",
-								""
 							]
 						}
 					},
@@ -553,19 +518,49 @@
 							}
 						},
 						"url": {
-							"raw": "{{host}}/admin/order/:orderId/",
+							"raw": "{{host}}/admin/orders/:orderId/",
 							"host": [
 								"{{host}}"
 							],
 							"path": [
 								"admin",
-								"order",
+								"orders",
 								":orderId",
 								""
 							],
 							"variable": [
 								{
 									"key": "orderId",
+									"value": ""
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "cancel order",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{logged user}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{host}}/orders/:orederId",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"orders",
+								":orederId"
+							],
+							"variable": [
+								{
+									"key": "orederId",
 									"value": ""
 								}
 							]
