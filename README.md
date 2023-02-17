@@ -15,7 +15,7 @@ A RESTful API shop backend project using Node.js and express.
   This project has three roles: Unregistered user, Registered user and Admin
 
   - **Unregistered user**
-  1. get all projects
+  1. get all products
   2. get specific product data
 
   - **Registered user**
